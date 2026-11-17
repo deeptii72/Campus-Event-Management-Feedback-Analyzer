@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Event Management & Feedback Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🏛️ Campus Event Management & Feedback Analyzer</h1>
+
+        <!-- Create Event Section -->
+        <div class="card">
+            <h2>Add Campus Event</h2>
+            <form id="eventForm">
+                <div class="form-grid">
+                    <input type="text" id="event_name" placeholder="Event Name" required>
+                    <input type="date" id="event_date" required>
+                    <input type="text" id="event_venue" placeholder="Venue" required>
+                    <input type="text" id="event_desc" placeholder="Event Description" required>
+                </div>
+                <button type="submit" class="btn">Create Event</button>
+            </form>
+        </div>
+
+        <!-- Submit Feedback Section -->
+        <div class="card">
+            <h2>Submit Event Feedback</h2>
+            <form id="feedbackForm">
+                <div class="form-grid">
+                    <select id="event_select" required>
+                        <option value="">Select Event</option>
+                    </select>
+                    <input type="text" id="student_name" placeholder="Your Name" required>
+                    <select id="rating" required>
+                        <option value="">Rating (1-5)</option>
+                        <option value="5">5 - Excellent</option>
+                        <option value="4">4 - Good</option>
+                        <option value="3">3 - Average</option>
+                        <option value="2">2 - Poor</option>
+                        <option value="1">1 - Very Bad</option>
+                    </select>
+                </div>
+                <textarea id="comments" placeholder="Write feedback comments..." rows="3" required></textarea>
+                <button type="submit" class="btn btn-success">Submit Feedback</button>
+            </form>
+        </div>
+
+        <!-- Feedback Analytics Dashboard -->
+        <div class="stats-grid" id="statsGrid"></div>
+
+        <div class="chart-container card">
+            <h2>Feedback Sentiment Analysis Report</h2>
+            <canvas id="sentimentChart"></canvas>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
